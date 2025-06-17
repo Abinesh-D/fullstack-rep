@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: server
+    env: node
+    buildCommand: cd server && npm install
+    startCommand: node index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+    repo: https://github.com/your-username/your-repo-name
+    branch: main
