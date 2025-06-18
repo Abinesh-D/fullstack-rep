@@ -5,6 +5,8 @@ import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BASE_URL } from '../../../../config';
+
 
 const styles = {
     container: {
@@ -923,7 +925,8 @@ const handleFileUpload = async (e) => {
 
         const commaSeparated = classCodes.join(',');
 
-        const response = await axios.get(`http://localhost:8080/api/ipc-definition/${encodeURIComponent(commaSeparated)}`);
+        const response = await axios.get(`${BASE_URL}/api/ipc-definition/${encodeURIComponent(commaSeparated)}`);
+        // const response = await axios.get(`http://localhost:8080/api/ipc-definition/${encodeURIComponent(commaSeparated)}`);
         setUploadProgress(75);
 
         const rootItem = response.data?.definition?.['world-patent-data']?.['classification-scheme']?.['cpc']?.['class-scheme']?.['classification-item'];

@@ -3,6 +3,8 @@ import axios from "axios";
 import { TabContent, TabPane, Spinner, Card, CardBody, } from "reactstrap";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCode } from "react-icons/fa";
+import { BASE_URL } from "../../../../config";
+
 
 const SourceContent = ({ activeTab }) => {
   const [classNumber, setClassNumber] = useState("");
@@ -17,7 +19,8 @@ const SourceContent = ({ activeTab }) => {
     setDataLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8080/cpc/google/${classNumber.trim()}`
+        `${BASE_URL}/cpc/google/${classNumber.trim()}`
+        // `http://localhost:8080/cpc/google/${classNumber.trim()}`
       );
       setDefinitionData(response.data || []);
       setExpandedIndex(null);
