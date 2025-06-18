@@ -1,9 +1,10 @@
 import { saveAs } from "file-saver";
 import {
-    Document, Packer, Paragraph, TextRun, HeadingLevel, ExternalHyperlink,
+    Document, Packer, Paragraph, TextRun, HeadingLevel,
     Table, TableRow, TableCell, WidthType, ShadingType, BorderStyle,
-    AlignmentType, Footer
+    AlignmentType, Footer,
 } from "docx";
+
 
 const defaultFont = { font: "Arial", size: 20, };
 
@@ -14,7 +15,7 @@ const commonBorders = {
     right: { style: BorderStyle.SINGLE, size: 1, color: "D3D3D3" },
 };
 
-const borderNone =  {
+const borderNone = {
     top: { style: BorderStyle.SINGLE, size: 1, color: "FFFFFF" },
     bottom: { style: BorderStyle.SINGLE, size: 1, color: "FFFFFF" },
     left: { style: BorderStyle.SINGLE, size: 1, color: "FFFFFF" },
@@ -95,14 +96,14 @@ However, this patent explicitly discloses the top mount of the dispenser is twis
             })
         );
 
-        console.log('filteredDescriptions', filteredDescriptions);
+    console.log('filteredDescriptions', filteredDescriptions);
 
 
     const isValidDescription = filteredDescriptions && typeof filteredDescriptions === 'object' && Object.keys(filteredDescriptions).length > 0;
 
     const descriptionTable = new Table({
         width: { size: 100, type: WidthType.PERCENTAGE },
-        rows: isValidDescription ? 
+        rows: isValidDescription ?
             Object.entries(filteredDescriptions).map(([key, value]) =>
                 new TableRow({
                     children: [
@@ -176,7 +177,7 @@ However, this patent explicitly discloses the top mount of the dispenser is twis
                             height: 15840,
                         },
                     },
-                },              
+                },
                 children: [
                     new Paragraph({
                         text: "Potentially Relevant References",
@@ -243,8 +244,8 @@ However, this patent explicitly discloses the top mount of the dispenser is twis
                                 ],
                             }),
                         ],
-                    }), 
-                                       
+                    }),
+
                     new Paragraph({
                         spacing: {
                             before: marginsStyle.margins.top || 0,
@@ -310,21 +311,21 @@ However, this patent explicitly discloses the top mount of the dispenser is twis
                                             new Paragraph({
                                                 spacing: { after: 200 },
                                                 children: [
-                                                    createTextRun(safeText(abstract === null ? '*Abstract not available please fill manually..!' : abstract), 
-                                                    { bold: true, color: abstract === null && "FF0000"  })
+                                                    createTextRun(safeText(abstract === null ? '*Abstract not available please fill manually..!' : abstract),
+                                                        { bold: true, color: abstract === null && "FF0000" })
                                                 ]
                                             })
                                         ],
-                                         borders: borderNone,
-                                         margins: marginsStyle.margins,
+                                        borders: borderNone,
+                                        margins: marginsStyle.margins,
                                     })
                                 ]
-                            }),                                                     
-                        ],                        
+                            }),
+                        ],
                     }),
-                   descriptionTable
+                    descriptionTable
                 ],
-                  footers: {
+                footers: {
                     default: new Footer({
                         children: [
                             new Paragraph({
