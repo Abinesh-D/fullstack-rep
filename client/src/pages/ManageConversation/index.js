@@ -7,16 +7,18 @@ const Index = () => {
     return (
         <div className="page-content">
             <Container fluid>
-                <Row>
-                    <Col lg="12">
+                {/* <Row> */}
+                    {/* <Col lg="12">
                         <Card>
                             <CardBody>
                                 <Consversation />
+                                
 
                             </CardBody>
                         </Card>
-                    </Col>
-                </Row>
+                    </Col> */}
+                    <Consversation />
+                {/* </Row> */}
             </Container>
         </div>
     );
