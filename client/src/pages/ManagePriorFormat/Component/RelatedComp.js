@@ -4,12 +4,12 @@ import { fetchESPData } from '../../ManageEmployees/ManageBibliography/Bibliogra
 import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 
-const RelatedComp = () => {
+const RelatedComp = ({ activeTab }) => {
 
     const dispatch = useDispatch();
     const data = useSelector(state => state.patentSlice.espData);
 
-    console.log(data, 'data');
+    console.log(data, 'data', activeTab);
 
     const [patentNumber, setPatentNumber] = useState('');
     const [famId, setfamId] = useState("");

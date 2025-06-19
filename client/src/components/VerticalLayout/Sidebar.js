@@ -15,7 +15,8 @@ import logoLightSvg from "../../assets/images/logo-light.svg";
 import logoDark from "../../assets/images/logo-dark.png";
 
 import MClogo from '../../assets/images/mciplogo-1.png'
-// import MClogotransparent from '../../assets/images/'
+import McLogoSm from '../../assets/images/mc-logo-sm.png'
+import mcrpllogosm from "../../assets/images/mcrpl-logo-sm.png"
 
 const Sidebar = props => {
 
@@ -25,7 +26,7 @@ const Sidebar = props => {
         <div className="navbar-brand-box">
           <Link to="/dashboard" className="logo logo-dark">
             <span className="logo-sm">
-              {/* <img src={MClogotransparent} alt="" height="22" /> */}
+              {/* <img src={McLogoSm} alt="" height="22" /> */}
             </span>
             <span className="logo-lg">
               <img src={MClogo} alt="" height="17" />
@@ -33,10 +34,10 @@ const Sidebar = props => {
           </Link>
 
           <a href="https://mcresearch.co.in/" target="_blank" rel="noopener noreferrer" className="logo logo-light">
-            <span className="logo-sm">
-              {/* <img src={MClogotransparent} alt="" height="40" /> */}
+            <span className="logo-sm" >
+              <img src={mcrpllogosm} alt="" height="40" />
             </span>
-            <span className="logo-lg">
+            <span className="logo-lg me-4">
               <img src={MClogo} alt="" height="40" />
             </span>
           </a>

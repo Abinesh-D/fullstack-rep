@@ -8,7 +8,7 @@ import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu";
 import logo from "../../assets/images/logo.svg";
 
 import MClogotransparent from '../../assets/images/mclogo2016.png'
-
+import mcLogo from "../../assets/images/mc-logo-sm.png"
 
 
 import { withTranslation } from "react-i18next";
@@ -85,6 +85,7 @@ const Header = props => {
                   <img src={logo} alt="" height="22" />
                 </span>
               </Link>
+              
 
               <Link to="/dashboard" className="logo logo-light">
                 <span className="logo-sm">

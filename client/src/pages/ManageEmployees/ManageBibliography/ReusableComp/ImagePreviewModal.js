@@ -54,8 +54,8 @@ const ImagePreviewModal = ({ visible, image, altText, onClose }) => {
                     onClick={onClose}
                     style={{
                         position: 'absolute',
-                        top: '-12px',
-                        right: '-10px',
+                        top: '0',
+                        right: '0',
                         background: 'transparent',
                         border: 'none',
                         fontSize: '1.25rem',

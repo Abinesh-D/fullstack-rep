@@ -11,8 +11,8 @@ const PatentReferenceTabs = ({ espaceData }) => {
   const [activeTab, setActiveTab] = useState("1");
 
   const tabs = [
-    { id: "1", label: "Relevant References", component: <ReleventComp /> },
-    { id: "2", label: "Related References", component: < RelatedComp /> },
+    { id: "1", label: "Relevant References", component: <ReleventComp activeTab={activeTab} /> },
+    { id: "2", label: "Related References", component: < RelatedComp activeTab={activeTab} /> },
     
   ];
 

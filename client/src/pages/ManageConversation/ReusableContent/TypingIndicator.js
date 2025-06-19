@@ -4,7 +4,7 @@ const TypingIndicator = () => {
   const containerStyle = {
     display: 'flex',
     alignItems: 'center',
-    flexDirection: 'column',
+    flexDirection: 'row',
     margin: '1rem',
   };
 
@@ -28,13 +28,6 @@ const TypingIndicator = () => {
     animation: `bounce 1.4s infinite ease-in-out both`,
     animationDelay: delay,
   });
-
-  const textStyle = {
-    fontSize: '0.9rem',
-    color: '#6c757d',
-    marginTop: '0.4rem',
-    animation: 'fadeText 2s ease-in-out infinite',
-  };
 
   return (
     <div style={containerStyle}>
