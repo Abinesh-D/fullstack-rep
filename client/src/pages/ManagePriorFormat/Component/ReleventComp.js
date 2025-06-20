@@ -27,7 +27,6 @@ const ReleventComp = () => {
     const handleFetchPatentData = async () => {
         const trimmedNumber = patentNumber.trim();
         setLoading(true);
-        // setFilteredDescriptions([]);
         try {
             await fetchESPData(trimmedNumber, dispatch, 'relavent' );
         } catch (error) {

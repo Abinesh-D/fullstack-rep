@@ -43,6 +43,25 @@ async function getAccessToken(retryCount = 0) {
   }
 }
 
+// function formatPatentNumberWithDot(patentNumber) {
+//   if (!patentNumber) return "";
+
+//   let formatted = patentNumber;
+
+//   if (formatted.startsWith("WO19")) {
+//     formatted = formatted.split('').filter((_, i) => ![2, 3, 6].includes(i)).join('');
+//   } else if (formatted.startsWith("US") && formatted.length > 13) {
+//     formatted = formatted.split('').filter((_, i) => i !== 6).join('');
+//   } 
+  
+
+//   const regex = /^([A-Z]+\d+)([A-Z]+\d*)$/;
+//   const match = formatted.match(regex);
+//   return match ? `${match[1]}.${match[2]}` : formatted;
+// }
+
+
+
 function formatPatentNumberWithDot(patentNumber) {
   if (!patentNumber) return "";
 
@@ -54,10 +73,26 @@ function formatPatentNumberWithDot(patentNumber) {
     formatted = formatted.split('').filter((_, i) => i !== 6).join('');
   }
 
-  const regex = /^([A-Z]+\d+)([A-Z]+\d*)$/;
+  const regex = /^([A-Z]+\d+)([A-Z]+\d*)$/i;
   const match = formatted.match(regex);
-  return match ? `${match[1]}.${match[2]}` : formatted;
+
+  if (match) {
+    const base = match[1];
+    const kind = match[2];
+
+    if (/^[A-Z]+$/i.test(kind)) {
+      return `${base}${kind.slice(0, -1)}.${kind.slice(-1)}`;
+    }
+
+    return `${base}.${kind}`;
+  }
+
+  return formatted;
 }
+
+
+
+
 
 router.get("/:patentNumber", async (req, res) => {
   const { patentNumber } = req.params;
@@ -68,6 +103,7 @@ router.get("/:patentNumber", async (req, res) => {
 
   try {
     const formattedNumber = formatPatentNumberWithDot(patentNumber);
+    console.log(formattedNumber, 'formattedNumber')
 
     const token = await getAccessToken();
     const familyUrl = `https://ops.epo.org/3.2/rest-services/family/publication/docdb/${formattedNumber}`;

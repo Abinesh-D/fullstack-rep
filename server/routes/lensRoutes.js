@@ -138,6 +138,8 @@ router.post('/get-patent-data', async (req, res) => {
             }
         });
 
+        console.log(response.data, 'responseresponse')
+
         if (response.data.total > 0) {
             const formattedData = formatPatentData(response.data);
             return res.json({formattedData, fullData : response.data, url: lensPageUrl});
