@@ -77,12 +77,6 @@ const Conversation = () => {
             return updated;
           });
 
-          requestAnimationFrame(() => {
-            if (chatBoxRef.current) {
-              chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
-            }
-          });
-
         } else {
           clearInterval(typingIntervalRef.current);
           setTypingContent('');
